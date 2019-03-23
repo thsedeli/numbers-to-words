@@ -77,8 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="24" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -143,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553356268798" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553357564615" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -175,20 +174,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JAR Application.numberstowords.jar">
+  <component name="RunManager" selected="JAR Application.numbers-to-words.jar">
     <configuration name="NumberToWordsApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="NumberToWordsApp" />
       <module name="numberstowords" />
       <option name="PROGRAM_PARAMETERS" value="-2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NumberToWordsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="numberstowords" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NumberToWordsTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,24 +203,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="numbers-to-words.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/numbers_to_words_jar/numbers-to-words.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="numberstowords.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/numberstowords_jar/numberstowords.jar" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.NumberToWordsApp" />
-      <item itemvalue="JUnit.NumberToWordsTest" />
+      <item itemvalue="JAR Application.numberstowords.jar" />
       <item itemvalue="JUnit.NumberToWordsTest.testOverABillion" />
       <item itemvalue="JUnit.NumberToWordsTest.testInvalidInputVerySmallNumber" />
-      <item itemvalue="JAR Application.numberstowords.jar" />
+      <item itemvalue="JAR Application.numbers-to-words.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.numbers-to-words.jar" />
         <item itemvalue="JAR Application.numberstowords.jar" />
         <item itemvalue="Application.NumberToWordsApp" />
         <item itemvalue="JUnit.NumberToWordsTest.testInvalidInputVerySmallNumber" />
         <item itemvalue="JUnit.NumberToWordsTest.testOverABillion" />
-        <item itemvalue="JUnit.NumberToWordsTest" />
       </list>
     </recent_temporary>
   </component>
