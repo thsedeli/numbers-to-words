@@ -1,6 +1,13 @@
 import com.google.common.collect.ImmutableMap;
 
 public class NumberToWords implements NumberToWordsConverter {
+    private static int ZERO = 0;
+    private static int ONE = 1;
+    private static int TEN = 10;
+    private static int ONE_HUNDRED = 100;
+    private static int ONE_THOUSAND = 1000;
+    private static int ONE_MILLION = 1000000;
+
     private static final ImmutableMap<Integer, String> baseNumbers = ImmutableMap.<Integer, String>builder()
             .put(0, "zero").put(1, "one").put(2, "two").put(3, "three").put(4, "four").put(5, "five")
             .put(6, "six").put(7, "seven").put(8, "eight").put(9, "nine").put(10, "ten")
@@ -14,13 +21,17 @@ public class NumberToWords implements NumberToWordsConverter {
         StringBuilder numToWords = new StringBuilder();
         int numThousand;
 
-        if (number >= 1000) {
-            numThousand = number / 1000;
+        if (number == ZERO)
+            numToWords.append(baseNumbers.get(number));
+
+        if (number >= ONE_MILLION)
+        if (number >= ONE_THOUSAND) {
+            numThousand = number / ONE_THOUSAND;
             numToWords
                     .append(" ")
                     .append(appendBaseNumber(numThousand))
                     .append(" thousand");
-            number %= 1000;
+            number %= ONE_THOUSAND;
         }
 
         numToWords.append(appendBaseNumber(number));
@@ -32,28 +43,28 @@ public class NumberToWords implements NumberToWordsConverter {
         StringBuilder baseNumberToWords = new StringBuilder();
         int numHundred, numTen, numUnit;
 
-        if (number >= 100) {
-            numHundred = number / 100;
+        if (number >= ONE_HUNDRED) {
+            numHundred = number / ONE_HUNDRED;
             baseNumberToWords
                     .append(" ")
                     .append(baseNumbers.get(numHundred))
                     .append(" hundred");
-            number %= 100;
+            number %= ONE_HUNDRED;
         }
 
-        if (number > 0) {
+        if (number > ZERO) {
             if (baseNumbers.containsKey(number))
                 baseNumberToWords
                         .append(" ")
                         .append(baseNumbers.get(number));
             else {
-                numTen = number / 10;
+                numTen = number / TEN;
                 baseNumberToWords
                         .append(" ")
-                        .append(baseNumbers.get(numTen * 10));
+                        .append(baseNumbers.get(numTen * TEN));
 
-                numUnit = number % 10;
-                if (numUnit > 0)
+                numUnit = number % TEN;
+                if (numUnit > ZERO)
                     baseNumberToWords
                             .append(" ")
                             .append(baseNumbers.get(numUnit));
@@ -65,11 +76,11 @@ public class NumberToWords implements NumberToWordsConverter {
     public int validateAndReturnInput(String[] args) {
         int inputNumber;
 
-        if (args.length == 0 || args.length > 1)
+        if (args.length == ZERO || args.length > ONE)
             throw new IllegalArgumentException("Wrong arguments - Please just pass one integer number as argument");
 
         try {
-            inputNumber = Integer.parseInt(args[0]);
+            inputNumber = Integer.parseInt(args[ZERO]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Wrong arguments - Please just pass one integer number as argument");
         }

@@ -49,6 +49,8 @@ public class NumberToWordsTest {
                 numberToWords.toWords(19146));
         Assert.assertEquals("twenty thousand",
                 numberToWords.toWords(20000));
+        Assert.assertEquals("twenty thousand one",
+                numberToWords.toWords(20001));
         Assert.assertEquals("fifty six thousand one hundred ninety two",
                 numberToWords.toWords(56192));
         Assert.assertEquals("eighty nine thousand seven hundred sixty five",
@@ -65,6 +67,14 @@ public class NumberToWordsTest {
                 numberToWords.toWords(300000));
         Assert.assertEquals("seven hundred eighty five thousand six hundred seventy one",
                 numberToWords.toWords(785671));
+    }
+
+    @Test
+    public void testOverAMillion() {
+        Assert.assertEquals("one million",
+                numberToWords.toWords(1000000));
+        Assert.assertEquals("two million three hundred thirty three thousand eighty five",
+                numberToWords.toWords(2333085));
     }
 
 
