@@ -22,6 +22,29 @@ public class NumberToWordsTest {
         Assert.assertEquals("eleven", numberToWords.toWords(11));
         Assert.assertEquals("fifty", numberToWords.toWords(50));
         Assert.assertEquals("sixty seven", numberToWords.toWords(67));
+        Assert.assertEquals("ninety nine", numberToWords.toWords(99));
+    }
+
+    @Test
+    public void testThreeDigitNumbers() {
+        Assert.assertEquals("one hundred", numberToWords.toWords(100));
+        Assert.assertEquals("two hundred thirty three", numberToWords.toWords(233));
+        Assert.assertEquals("five hundred ninety seven", numberToWords.toWords(597));
+        Assert.assertEquals("nine hundred ninety nine", numberToWords.toWords(999));
+    }
+
+    @Test
+    public void testFourAndFiveDigitNumbers() {
+        Assert.assertEquals("one thousand", numberToWords.toWords(1000));
+        Assert.assertEquals("two thousand three hundred thirty three", numberToWords.toWords(2333));
+        Assert.assertEquals("four thousand five hundred ninety seven", numberToWords.toWords(4597));
+        Assert.assertEquals("nine thousand nine hundred ninety nine", numberToWords.toWords(9999));
+        Assert.assertEquals("twelve thousand eight hundred ninety seven", numberToWords.toWords(12897));
+        Assert.assertEquals("nineteen thousand one hundred forty six", numberToWords.toWords(19146));
+        Assert.assertEquals("twenty thousand", numberToWords.toWords(20000));
+        Assert.assertEquals("fifty six thousand one hundred ninety two", numberToWords.toWords(56192));
+        Assert.assertEquals("eighty nine thousand seven hundred sixty five", numberToWords.toWords(89765));
+        Assert.assertEquals("ninety nine thousand nine hundred ninety nine", numberToWords.toWords(99999));
     }
 
     @Test(expected = IllegalArgumentException.class)
