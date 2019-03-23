@@ -44,6 +44,7 @@ public class NumberToWords implements NumberToWordsConverter {
         if (number > 0) {
             if (baseNumbers.containsKey(number))
                 baseNumberToWords
+                        .append(" ")
                         .append(baseNumbers.get(number));
             else {
                 numTen = number / 10;
