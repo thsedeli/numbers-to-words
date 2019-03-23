@@ -5,7 +5,7 @@ public class NumberToWordsApp {
         int inputNumber;
 
         try {
-            inputNumber = numberToWords.validateAndReturnInput(args);
+            inputNumber = numberToWords.parseInput(args);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return;

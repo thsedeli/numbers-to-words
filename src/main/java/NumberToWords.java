@@ -3,10 +3,12 @@ import com.google.common.collect.ImmutableMap;
 public class NumberToWords implements NumberToWordsConverter {
     private static int ZERO = 0;
     private static int ONE = 1;
+    private static int MINUS_ONE = -1;
     private static int TEN = 10;
     private static int ONE_HUNDRED = 100;
     private static int ONE_THOUSAND = 1000;
     private static int ONE_MILLION = 1000000;
+    private static int ONE_BILLION = 1000000000;
 
     private static final ImmutableMap<Integer, String> baseNumbers = ImmutableMap.<Integer, String>builder()
             .put(0, "zero").put(1, "one").put(2, "two").put(3, "three").put(4, "four").put(5, "five")
@@ -19,16 +21,38 @@ public class NumberToWords implements NumberToWordsConverter {
 
     public String toWords(int number) {
         StringBuilder numToWords = new StringBuilder();
-        int numThousand;
+        int numThousand, numMillion, numBillion;
+
+        if (Math.signum(number) == MINUS_ONE) {
+            numToWords.append("minus");
+            if (number > Integer.MIN_VALUE)
+                number = Math.abs(number);
+            else
+                throw new IllegalArgumentException("Wrong arguments - Please just pass one integer number between -2147483647 and 2147483647");
+        }
 
         if (number == ZERO)
             numToWords.append(baseNumbers.get(number));
 
-        if (number >= ONE_MILLION)
+        if (number >= ONE_BILLION) {
+            numBillion = number / ONE_BILLION;
+            numToWords
+                    .append(appendBaseNumber(numBillion))
+                    .append(" billion");
+            number %= ONE_BILLION;
+        }
+
+        if (number >= ONE_MILLION) {
+            numMillion = number / ONE_MILLION;
+            numToWords
+                    .append(appendBaseNumber(numMillion))
+                    .append(" million");
+            number %= ONE_MILLION;
+        }
+
         if (number >= ONE_THOUSAND) {
             numThousand = number / ONE_THOUSAND;
             numToWords
-                    .append(" ")
                     .append(appendBaseNumber(numThousand))
                     .append(" thousand");
             number %= ONE_THOUSAND;
@@ -73,7 +97,7 @@ public class NumberToWords implements NumberToWordsConverter {
         return baseNumberToWords.toString();
     }
 
-    public int validateAndReturnInput(String[] args) {
+    public int parseInput(String[] args) {
         int inputNumber;
 
         if (args.length == ZERO || args.length > ONE)
@@ -82,7 +106,7 @@ public class NumberToWords implements NumberToWordsConverter {
         try {
             inputNumber = Integer.parseInt(args[ZERO]);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Wrong arguments - Please just pass one integer number as argument");
+            throw new IllegalArgumentException("Wrong arguments - Please just pass one integer number between -2147483647 and 2147483647");
         }
 
         return inputNumber;
